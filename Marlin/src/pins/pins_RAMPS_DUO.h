@@ -1,9 +1,9 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -74,7 +74,7 @@
 //
 // LCD / Controller
 //
-#if HAS_SPI_LCD
+#if ENABLED(ULTRA_LCD)
 
   #if BOTH(NEWPANEL, PANEL_ONE)
     #undef LCD_PINS_D4
@@ -127,4 +127,4 @@
 
   #endif // NEWPANEL
 
-#endif // HAS_SPI_LCD
+#endif // ULTRA_LCD

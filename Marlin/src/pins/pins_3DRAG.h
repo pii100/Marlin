@@ -1,9 +1,9 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -103,7 +103,7 @@
 
   #define BEEPER_PIN       33
 
-#endif // HAS_SPI_LCD && NEWPANEL
+#endif // ULTRA_LCD && NEWPANEL
 
 /**
  *  M3/M4/M5 - Spindle/Laser Control
@@ -140,7 +140,7 @@
 #undef SPINDLE_LASER_ENA_PIN
 #undef SPINDLE_DIR_PIN
 
-#if HAS_CUTTER
+#if ENABLED(SPINDLE_LASER_ENABLE)
   #if !EXTRUDERS
     #undef E0_DIR_PIN
     #undef E0_ENABLE_PIN

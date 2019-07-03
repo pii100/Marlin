@@ -1,9 +1,9 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -189,6 +189,7 @@ bool load_filament(const float &slow_load_length/*=0*/, const float &fast_load_l
       #endif
       idle(true);
     }
+    KEEPALIVE_STATE(IN_HANDLER);
   }
 
   #if HAS_LCD_MENU
@@ -277,6 +278,7 @@ bool load_filament(const float &slow_load_length/*=0*/, const float &fast_load_l
           wait_for_user = false;
           lcd_pause_show_message(PAUSE_MESSAGE_OPTION);
           while (pause_menu_response == PAUSE_RESPONSE_WAIT_FOR) idle(true);
+          KEEPALIVE_STATE(IN_HANDLER);
         }
       #endif
 
@@ -578,6 +580,7 @@ void wait_for_confirmation(const bool is_reload/*=false*/, const int8_t max_beep
     extruder_duplication_enabled = saved_ext_dup_mode;
     stepper.set_directions();
   #endif
+  KEEPALIVE_STATE(IN_HANDLER);
 }
 
 /**

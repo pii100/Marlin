@@ -1,9 +1,9 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 
 /**
  * Software SPI functions originally from Arduino Sd2Card Library
- * Copyright (c) 2009 by William Greiman
+ * Copyright (C) 2009 by William Greiman
  *
  * Completely rewritten and tuned by Eduardo José Tagle in 2017/2018
  * in ARM thumb2 inline assembler and tuned for maximum speed and performance

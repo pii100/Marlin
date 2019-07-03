@@ -1,7 +1,7 @@
 /**
  * Marlin 3D Printer Firmware
  *
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  * Copyright (c) 2016 Bob Cousins bobcousins42@googlemail.com
  * Copyright (c) 2015-2016 Nico Tonnhofer wurstnase.reprap@gmail.com
  *
@@ -82,9 +82,7 @@ extern HalSerial usb_serial;
 #define ENABLE_ISRS()
 #define DISABLE_ISRS()
 
-inline void HAL_init(void) { }
-
-// Utility functions
+//Utility functions
 int freeMemory(void);
 
 // SPI: Extended functions which take a channel number (hardware SPI only)

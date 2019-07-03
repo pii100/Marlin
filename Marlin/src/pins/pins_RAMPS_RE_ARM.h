@@ -1,9 +1,9 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -239,13 +239,9 @@
 // M3/M4/M5 - Spindle/Laser Control
 //            Use servo pins, if available
 //
-#if HAS_CUTTER && !PIN_EXISTS(SPINDLE_LASER_ENA)
+#if ENABLED(SPINDLE_LASER_ENABLE) && !PIN_EXISTS(SPINDLE_LASER_ENA)
   #if NUM_SERVOS > 1
-    #if ENABLED(SPINDLE_FEATURE)
-      #error "SPINDLE_FEATURE requires 3 free servo pins."
-    #else
-      #error "LASER_FEATURE requires 3 free servo pins."
-    #endif
+    #error "SPINDLE_LASER_ENABLE requires 3 free servo pins."
   #endif
   #define SPINDLE_LASER_ENA_PIN    SERVO1_PIN   // (6) Pin should have a pullup/pulldown!
   #define SPINDLE_LASER_PWM_PIN    SERVO3_PIN   // (4) MUST BE HARDWARE PWM
@@ -300,7 +296,7 @@
   #define LCD_PINS_ENABLE  P0_18   // J3-10 & AUX-3 (SID, MOSI)
   #define LCD_PINS_D4      P2_06   // J3-8 & AUX-3 (SCK, CLK)
 
-#elif HAS_SPI_LCD
+#elif ENABLED(ULTRA_LCD)
 
   //#define SCK_PIN        P0_15   // (52)  system defined J3-9 & AUX-3
   //#define MISO_PIN       P0_17   // (50)  system defined J3-10 & AUX-3
@@ -396,7 +392,7 @@
     //#define LCD_SCREEN_ROT_270
   #endif
 
-#endif // HAS_SPI_LCD
+#endif // ULTRA_LCD
 
 //
 // Ethernet pins

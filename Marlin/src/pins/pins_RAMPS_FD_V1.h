@@ -1,9 +1,9 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -138,7 +138,7 @@
 //
 // LCD / Controller
 //
-#if HAS_SPI_LCD
+#if ENABLED(ULTRA_LCD)
   // ramps-fd lcd adaptor
 
   #define BEEPER_PIN       37
@@ -202,7 +202,7 @@
     #define DOGLCD_MISO    74   // MISO_PIN
   #endif
 
-#endif // HAS_SPI_LCD
+#endif // ULTRA_LCD
 
 #if HAS_DRIVER(TMC2208) || HAS_DRIVER(TMC2209)
   /**
@@ -227,7 +227,7 @@
 //
 // M3/M4/M5 - Spindle/Laser Control
 //
-#if HOTENDS < 3 && HAS_CUTTER && !PIN_EXISTS(SPINDLE_LASER_ENA)
+#if HOTENDS < 3 && ENABLED(SPINDLE_LASER_ENABLE) && !PIN_EXISTS(SPINDLE_LASER_ENA)
   #define SPINDLE_LASER_ENA_PIN 45   // Use E2 ENA
   #define SPINDLE_LASER_PWM_PIN 12   // MUST BE HARDWARE PWM
   #define SPINDLE_DIR_PIN       47   // Use E2 DIR

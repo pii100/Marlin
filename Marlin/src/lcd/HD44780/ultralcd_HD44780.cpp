@@ -1,9 +1,9 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -886,7 +886,7 @@ void MarlinUI::draw_status_screen() {
               uint16_t spd = thermalManager.fan_speed[0];
               if (blink) c = 'F';
               #if ENABLED(ADAPTIVE_FAN_SLOWING)
-                else { c = '*'; spd = thermalManager.scaledFanSpeed(0, spd); }
+                else { c = '*'; spd = (spd * thermalManager.fan_speed_scaler[0]) >> 7; }
               #endif
               per = thermalManager.fanPercent(spd);
             }

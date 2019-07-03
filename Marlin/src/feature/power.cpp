@@ -1,9 +1,9 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -92,14 +92,6 @@ bool Power::is_power_needed() {
 
   #if HAS_HEATED_BED
     if (thermalManager.degTargetBed() > 0) return true;
-  #endif
-
-  #if HOTENDS && AUTO_POWER_E_TEMP
-    HOTEND_LOOP() if (thermalManager.degHotend(e) >= AUTO_POWER_E_TEMP) return true;
-  #endif
-
-  #if HAS_HEATED_CHAMBER && AUTO_POWER_CHAMBER_TEMP
-    if (thermalManager.degChamber() >= AUTO_POWER_CHAMBER_TEMP) return true;
   #endif
 
   return false;

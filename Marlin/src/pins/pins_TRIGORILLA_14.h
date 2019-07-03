@@ -1,9 +1,9 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -81,7 +81,7 @@
 // AnyCubic made the following changes to 1.1.0-RC8
 // If these are appropriate for your LCD let us know.
 //
-#if 0 && HAS_SPI_LCD
+#if 0 && ENABLED(ULTRA_LCD)
 
   // LCD Display output pins
   #if BOTH(NEWPANEL, PANEL_ONE)
@@ -107,4 +107,4 @@
     #define DOGLCD_A0      42
   #endif
 
-#endif // HAS_SPI_LCD
+#endif // ULTRA_LCD

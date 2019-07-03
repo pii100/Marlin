@@ -1,9 +1,9 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
- * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -75,9 +75,9 @@
  *
  * M0   - Unconditional stop - Wait for user to press a button on the LCD (Only if ULTRA_LCD is enabled)
  * M1   -> M0
- * M3   - Turn ON Laser | Spindle (clockwise), set Power | Speed. (Requires SPINDLE_FEATURE or LASER_FEATURE)
- * M4   - Turn ON Laser | Spindle (counter-clockwise), set Power | Speed. (Requires SPINDLE_FEATURE or LASER_FEATURE)
- * M5   - Turn OFF Laser | Spindle. (Requires SPINDLE_FEATURE or LASER_FEATURE)
+ * M3   - Turn ON Laser | Spindle (clockwise), set Power | Speed. (Requires SPINDLE_LASER_ENABLE)
+ * M4   - Turn ON Laser | Spindle (counter-clockwise), set Power | Speed. (Requires SPINDLE_LASER_ENABLE)
+ * M5   - Turn OFF Laser | Spindle. (Requires SPINDLE_LASER_ENABLE)
  * M7   - Turn mist coolant ON. (Requires COOLANT_CONTROL)
  * M8   - Turn flood coolant ON. (Requires COOLANT_CONTROL)
  * M9   - Turn coolant OFF. (Requires COOLANT_CONTROL)
@@ -339,9 +339,9 @@ public:
 
     static void host_keepalive();
 
-    #define KEEPALIVE_STATE(N) REMEMBER(_KA_, gcode.busy_state, gcode.N)
+    #define KEEPALIVE_STATE(n) gcode.busy_state = gcode.n
   #else
-    #define KEEPALIVE_STATE(N) NOOP
+    #define KEEPALIVE_STATE(n) NOOP
   #endif
 
   static void dwell(millis_t time);
@@ -453,7 +453,7 @@ private:
     static void M0_M1();
   #endif
 
-  #if HAS_CUTTER
+  #if ENABLED(SPINDLE_LASER_ENABLE)
     static void M3_M4(const bool is_M4);
     static void M5();
   #endif

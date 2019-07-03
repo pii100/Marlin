@@ -1,9 +1,9 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (C) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+ * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -145,7 +145,7 @@ void process_lcd_eb_command(const char* command) {
   switch (command[0]) {
     case '0': {
       elapsed = print_job_timer.duration();
-      sprintf_P(elapsed_buffer, PSTR("%02u%02u%02u"), uint16_t(elapsed.hour()), uint16_t(elapsed.minute()) % 60UL, elapsed.second());
+      sprintf_P(elapsed_buffer, PSTR("%02u%02u%02u"), uint16_t(elapsed.hour()), uint16_t(elapsed.minute()) % 60, uint16_t(elapsed.second()) % 60);
 
       char message_buffer[MAX_CURLY_COMMAND];
       sprintf_P(message_buffer,
@@ -461,7 +461,7 @@ namespace ExtUI {
       // issue a percent of 0.
       const uint8_t percent_done = IS_SD_PRINTING() ? card.percentDone() : last_printing_status ? 100 : 0;
       if (percent_done != last_percent_done) {
-        char message_buffer[10];
+        char message_buffer[16];
         sprintf_P(message_buffer, PSTR("{TQ:%03i}"), percent_done);
         write_to_lcd(message_buffer);
         last_percent_done = percent_done;
